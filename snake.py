@@ -11,6 +11,7 @@ class Snake(arcade.Sprite):
         self.change_y = 0
         self.speed = 4
         self.score = 0
+        self.status = False
         self.body = []   #لیستی از دیکشنری ها که شامل ایکس و وای هست  
 
     def draw(self):  #دز اينجا از متد دراو پدر استفاده نكرديم وبا اورلودينگ يك تابع از خودمان تعريف كرديم
@@ -35,13 +36,17 @@ class Snake(arcade.Sprite):
     def eat(self ,food):
         del food    #براي اينكه هر دفعه يك سيب جديد ساخته بشه اول آبجكت سيب حذف ميكنيم
         self.score += 1
+        self.status = True
 
     def eat_pear(self, pear):
         del pear
         self.score += 2   
+        self.status = True
 
     def eat_bomb(self, bomb):
         del bomb
-        self.score -=1        
+        self.score -=1 
+        self.status = True
+       
         
         
